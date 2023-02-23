@@ -60,7 +60,6 @@ function search(RequestResult) {
   resultArr = RequestResult.items.slice(0, 5);
 
   let arrName = resultArr.map((item) => item.name);
-  console.log(arrName);
 
   for (let i = 0; i < arrName.length; i++) {
     listItems[i].textContent = arrName[i];
@@ -103,4 +102,3 @@ function makeCard() {
 searchRep.addEventListener("keyup", debounce(getPost, 300));
 makeCard();
 closeCard("card__close");
-// getPost().then((result) => console.log(result));
