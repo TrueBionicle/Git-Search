@@ -1,0 +1,112 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-block {
+    margin: 150px auto 50px;
+    width: 300px;
+    height: 300px;
+}
+
+.search {
+    border: 2px solid rgb(110, 110, 110);
+    width: 300px;
+    height: 50px;
+    display: flex;
+    padding-left: 10px;
+    font-size: 20px;
+}
+
+.list {
+    display: none;
+}
+
+li {
+    padding-top: 10px;
+    padding-left: 10px;
+    cursor: pointer;
+    margin: 0 auto;
+    list-style-type: none;
+    font-size: 20px;
+    border: 1px solid grey;
+    text-decoration: none;
+    width: 300px;
+    height: 50px;
+    background-color: rgb(238, 237, 237);
+}
+
+li:hover {
+    background-color: rgba(71, 71, 71, 0.226)
+}
+
+
+
+
+
+
+
+.cards-block {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: auto;
+}
+
+.card {
+    display: flex;
+    width: inherit;
+    height: 100px;
+    background-color: rgb(189 225 138 / 42%);
+    border: 1px solid #000;
+    margin-top: 5px;
+}
+
+.card__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-left: 10px;
+}
+
+.card__info__item {
+    font-size: 18px;
+    font-family: Arial;
+}
+
+.card__close {
+    margin-left: auto;
+    margin-right: 10px;
+    margin-top: 30px;
+    cursor: pointer;
+    border: 0;
+    display: block;
+    width: 40px;
+    height: 40px;
+    --weight: 3px;
+    --aa: 1px;
+    /* anti-aliasing */
+    --color: rgb(185, 134, 134);
+    border-radius: 3px;
+    background:
+        linear-gradient(45deg, transparent calc(50% - var(--weight) - var(--aa)), var(--color) calc(50% - var(--weight)), var(--color) calc(50% + var(--weight)), transparent calc(50% + var(--weight) + var(--aa))),
+        linear-gradient(-45deg, transparent calc(50% - var(--weight) - var(--aa)), var(--color) calc(50% - var(--weight)), var(--color) calc(50% + var(--weight)), transparent calc(50% + var(--weight) + var(--aa)));
+}
+
+.card__close:hover {
+    --color: red;
+}
+
+.show-display {
+    display: block;
+}
+
+.hide-block {
+    display: none;
+    height: 0;
+}
