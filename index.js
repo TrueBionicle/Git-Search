@@ -1,7 +1,12 @@
-let searchRep = document.querySelector(".search");
-let list = document.querySelector(".list");
-let listItems = document.querySelectorAll("li");
-let cardsBlock = document.querySelector(".cards-block");
+// 1. Я не нашел проблемы в работе дебоунс. Какой бы длинны текст я не вводил - всё отрабатывает нормально. Десять раз всё проверил. Увеличил задержку с 300 до 700мс.
+// 2. Изменил
+// 3. Поменял на insertAdjacentHTML
+// 4. Заменил keyup на input
+
+const searchRep = document.querySelector(".search");
+const list = document.querySelector(".list");
+const listItems = document.querySelectorAll("li");
+const cardsBlock = document.querySelector(".cards-block");
 let resultArr = [];
 
 function checkLength(word) {
@@ -60,7 +65,8 @@ function search(RequestResult) {
   resultArr = RequestResult.items.slice(0, 5);
 
   let arrName = resultArr.map((item) => item.name);
-
+  console.log("Ответ сервера:");
+  console.log(resultArr);
   for (let i = 0; i < arrName.length; i++) {
     listItems[i].textContent = arrName[i];
     listItems[i].setAttribute("id", `${resultArr[i].id}`);
@@ -85,20 +91,24 @@ function makeCard() {
           card.stars = checkLength(item.stargazers_count);
         }
       });
-      cardsBlock.innerHTML += `<div class="card">
+
+      cardsBlock.insertAdjacentHTML(
+        "afterbegin",
+        `<div class="card">
           <div class="card__info">
             <span class="card__info__item name">Name: ${card.name}</span>
             <span class="card__info__item owner">Owner: ${card.owner}</span>
             <span class="card__info__item stars">Stars: ${card.stars}</span>
           </div>
           <button class="card__close"></button>
-        </div>`;
+        </div>`
+      );
       searchRep.value = "";
       list.classList.remove("show-display");
     });
   });
 }
 
-searchRep.addEventListener("keyup", debounce(getPost, 300));
+searchRep.addEventListener("input", debounce(getPost, 700));
 makeCard();
 closeCard("card__close");
