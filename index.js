@@ -65,8 +65,6 @@ function search(RequestResult) {
   resultArr = RequestResult.items.slice(0, 5);
 
   let arrName = resultArr.map((item) => item.name);
-  console.log("Ответ сервера:");
-  console.log(resultArr);
   for (let i = 0; i < arrName.length; i++) {
     listItems[i].textContent = arrName[i];
     listItems[i].setAttribute("id", `${resultArr[i].id}`);
